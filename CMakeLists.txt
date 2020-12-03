@@ -5,3 +5,16 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_FLAGS "-Wall -Werror")
 
 add_executable(day_1 day_1.cpp)
+add_executable(day_2 day_2.cpp)
+
+function(aoc_day_solution day_id)
+    file(TOUCH  ${day_id}.in)
+    if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${day_id}.cpp")
+    else()
+        configure_file(template.in ${CMAKE_CURRENT_SOURCE_DIR}/${day_id}.cpp COPYONLY)
+    endif()
+    add_executable(${day_id} ${day_id}.cpp)
+    target_compile_definitions(${day_id} PUBLIC -DDAY_PATH="../${day_id}.in")
+endfunction()
+
+aoc_day_solution(day_3)
