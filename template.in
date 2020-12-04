@@ -15,7 +15,7 @@ struct AOC_Input{
   }
 };
 
-AOC_Input AOC_Reader::create_from_string(const std::string &line) {
+std::optional<AOC_Input> AOC_Reader::create_from_string(const std::string &line) {
   return AOC_Input(line);
 }
 

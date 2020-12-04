@@ -10,7 +10,9 @@ std::vector<AOC_Input> AOC_ParceInput(std::string const &path) {
   std::string line;
   std::vector<AOC_Input> v;
   while (std::getline(in, line)){
-    v.emplace_back(AOC_Reader::create_from_string(line));
+    auto input_data = AOC_Reader::create_from_string(line);
+    if (input_data)
+      v.emplace_back(input_data.value());
   }
   return v;
 }
