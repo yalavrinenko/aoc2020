@@ -19,3 +19,4 @@ endfunction()
 
 aoc_day_solution(day_3)
 aoc_day_solution(day_4)
+aoc_day_solution(day_5)
