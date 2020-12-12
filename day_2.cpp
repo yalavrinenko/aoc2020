@@ -22,7 +22,7 @@ struct AOC_Input{
   }
 };
 
-AOC_Input AOC_Reader::create_from_string(const std::string &line) {
+std::optional<AOC_Input> AOC_Reader::create_from_string(const std::string &line) {
   return AOC_Input(line);
 }
 
@@ -31,7 +31,7 @@ AOC_Output part_1(std::vector<AOC_Input> const &v){
     size_t csymbols = std::count(data.line.begin(), data.line.end(), data.symbol);
     return data.min <= csymbols && csymbols <= data.max;
   };
-  return AOC_Output{std::count_if(v.begin(), v.end(), count_lines_func)};
+  return AOC_Output{std::count_if(v.begin(), v.end(), count_lines_func)}
 }
 
 AOC_Output part_2(std::vector<AOC_Input> const &v){

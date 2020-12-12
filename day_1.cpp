@@ -5,7 +5,7 @@
 #include <iterator>
 #include <vector>
 #include <algorithm>
-
+#include <fstream>
 auto part_one(auto v, auto target) {
   for (auto const &e: v){
     auto mult2 = std::lower_bound(v.begin(), v.end(), target - e);
@@ -25,8 +25,9 @@ auto part_two(auto v, auto target) {
 }
 
 int main(int argc, char **argv) {
+  std::ifstream in("../day_1.in");
   std::vector<long long> v;
-  std::copy(std::istream_iterator<long long>{std::cin}, std::istream_iterator<long long>{}, std::back_inserter(v));
+  std::copy(std::istream_iterator<long long>{in}, std::istream_iterator<long long>{}, std::back_inserter(v));
   std::sort(v.begin(), v.end());
   std::cout << "\nPart 1: " << part_one(v, 2020) << std::endl;
   std::cout << "\nPart 2: " << part_two(v, 2020) << std::endl;

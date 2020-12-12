@@ -18,8 +18,8 @@ std::vector<AOC_Input> AOC_ParceInput(std::string const &path) {
 }
 
 int main(int argc, char** argv){
-  std::cout << part_1(AOC_ParceInput(DAY_PATH))() << std::endl;
-  std::cout << part_2(AOC_ParceInput(DAY_PATH))() << std::endl;
+  std::cout << "Part 1: " << part_1(AOC_ParceInput(DAY_PATH))() << std::endl;
+  std::cout << "Part 2: " << part_2(AOC_ParceInput(DAY_PATH))() << std::endl;
   return 0;
 }
 
