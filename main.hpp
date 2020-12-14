@@ -9,6 +9,11 @@
 #include <fstream>
 #include <optional>
 
+#include <unordered_map>
+#include <sstream>
+#include <numeric>
+
+
 struct AOC_Input;
 struct AOC_Output;
 
