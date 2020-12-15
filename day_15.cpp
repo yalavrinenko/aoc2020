@@ -25,8 +25,8 @@ std::optional<AOC_Input> AOC_Reader::create_from_string(const std::string &line)
 
 auto play_game(auto const& v, size_t max_turns){
   auto &in = v.front().numbers;
-  std::unordered_map<long, std::pair<long, long>> turns;
-  long last_number;
+  std::vector<std::pair<long, long>> turns(max_turns + 1, std::pair{-1, -1});
+  long last_number = 0;
   for (auto i = 1l; auto &e : in){
     turns[e] = {i++, -1};
     last_number = e;
@@ -39,7 +39,7 @@ auto play_game(auto const& v, size_t max_turns){
     if (pprev == -1){
       say = 0;
     }
-    if (turns.contains(say)){
+    if (turns[say].first != -1){
       turns[say] = std::pair{static_cast<long>(turn_it), turns[say].first};
     } else {
       turns[say] = std::pair{static_cast<long>(turn_it), -1};
